@@ -1,0 +1,10 @@
+cluster_name       = "codebrewery-dev-cluster"
+cluster_version    = "1.26"
+vpc_id             = "vpc-123abc456"
+subnet_ids         = ["subnet-abc123", "subnet-def456", "subnet-ghi789"]
+desired_node_count = 3
+environment        = "dev"
+aws_region         = "us-west-2"
+instance_types     = ["t3.medium", "t3.large"]
+node_group_min_size = 2
+node_group_max_size = 6
