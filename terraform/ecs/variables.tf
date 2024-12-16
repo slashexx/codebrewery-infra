@@ -5,7 +5,7 @@ variable "repository_name" {
 }
 
 variable "environment" {
-  description = "prod"
+  description = "Development environment"
   type        = string
   default     = "dev"
 }
