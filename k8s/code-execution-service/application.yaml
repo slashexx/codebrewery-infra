@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: codebrewery-code-execution-service
+  namespace: argocd
+spec:
+  project: default
+
+  source: 
+    repoURL: https://gitlab.com/slashexx/codebrewery-infra
+    targetRevision: HEAD
+    path: k8s/code-execution-service
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: codebrewery-code-execution-service
+
+  syncPolicy:
+    
+    automated:
+      prune: true
+      selfHeal: true
+    
+    syncOptions:
+      - CreateNamespace=true

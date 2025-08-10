@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: codebrewery-frontend
+  namespace: argocd
+spec:
+  project: default
+
+  source: 
+    repoURL: https://gitlab.com/slashexx/codebrewery-infra
+    targetRevision: HEAD
+    path: k8s/frontend
+
+  destination:
+    server: https://kubernetes.default.svc
+    git namespace: codebrewery-frontend
+
+  syncPolicy:
+    
+    automated:
+      prune: true
+      selfHeal: true
+    
+    syncOptions:
+      - CreateNamespace=true
